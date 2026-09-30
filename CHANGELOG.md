@@ -18,6 +18,7 @@
 - Aislado el `wp-content/` local dentro del montaje Docker para que los plugins de desarrollo no se analicen como parte de SiteVitals.
 - Documentada la excepción PHPCS del filtro core `xmlrpc_enabled`.
 - Usada `SITEVITALS_VERSION` para versionar correctamente los assets del panel y evitar caché obsoleta.
+- Añadido en Ajustes un aviso para solicitar características mediante issue o correo electrónico, con traducción al español.
 
 ### Etapa 0 - Alcance y decisiones iniciales
 

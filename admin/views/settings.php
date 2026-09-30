@@ -123,6 +123,17 @@ $sitevitals_settings = $data['settings'];
 		<?php submit_button( __( 'Save settings', 'sitevitals' ), 'primary', 'submit', false ); ?>
 	</form>
 
+	<div class="notice notice-info inline sitevitals-feature-request">
+		<p><strong><?php esc_html_e( 'Have a feature request?', 'sitevitals' ); ?></strong></p>
+		<p>
+			<?php esc_html_e( 'Create an issue in the repository or send me an email at', 'sitevitals' ); ?>
+			<a href="<?php echo esc_url( 'https://github.com/zer0-sh/sitevitals/issues/new' ); ?>"><?php esc_html_e( 'Create an issue', 'sitevitals' ); ?></a>
+			<?php esc_html_e( 'or', 'sitevitals' ); ?>
+			<a href="<?php echo esc_url( 'mailto:zer0sh@protonmail.ch?subject=SiteVitals%20feature%20request' ); ?>">zer0sh@protonmail.ch</a>
+			<?php esc_html_e( 'with your request. I will work on it as soon as I have some time.', 'sitevitals' ); ?>
+		</p>
+	</div>
+
 	<?php $sitevitals_time_format = $sitevitals_settings->is_time_24h() ? 'H:i' : (string) get_option( 'time_format' ); ?>
 
 	<p>

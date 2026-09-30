@@ -491,13 +491,33 @@ msgstr ""
 msgid "Save settings"
 msgstr ""
 
-#. translators: 1: configured frequency, 2: date of the next run.
+#: admin/views/settings.php:127
+msgid "Have a feature request?"
+msgstr ""
+
+#: admin/views/settings.php:129
+msgid "Create an issue in the repository or send me an email at"
+msgstr ""
+
+#: admin/views/settings.php:130
+msgid "Create an issue"
+msgstr ""
+
+#: admin/views/settings.php:131
+msgid "or"
+msgstr ""
+
 #: admin/views/settings.php:133
+msgid "with your request. I will work on it as soon as I have some time."
+msgstr ""
+
+#. translators: 1: configured frequency, 2: date of the next run.
+#: admin/views/settings.php:144
 #, php-format
 msgid "Scheduled scan: %1$s. Next run: %2$s."
 msgstr ""
 
-#: admin/views/settings.php:142
+#: admin/views/settings.php:153
 msgid "not scheduled"
 msgstr ""
 

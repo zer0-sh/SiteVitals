@@ -42,6 +42,10 @@
 	margin: 14px 0 0;
 }
 
+.sitevitals-wrap .sitevitals-feature-request {
+	margin-top: 28px;
+}
+
 /* Header. */
 .sitevitals-header {
 	display: flex;
