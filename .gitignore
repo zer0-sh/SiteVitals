@@ -10,6 +10,9 @@ composer.lock
 *.log
 /wp-content/
 
+# Paquetes generados localmente
+*.zip
+
 # IDE and system files
 /.idea/
 /.vscode/
