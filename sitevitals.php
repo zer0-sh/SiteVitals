@@ -3,7 +3,7 @@
  * Plugin Name: SiteVitals
  * Plugin URI:  https://github.com/zer0-sh/sitevitals
  * Description: Ultra lightweight WordPress plugin to monitor your website's performance and uptime.
- * Version:     0.1.2
+ * Version:     0.1.3
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Author:      SiteVitals
@@ -24,7 +24,7 @@ if ( ! defined( 'SITEVITALS_PLUGIN_FILE' ) ) {
 }
 
 if ( ! defined( 'SITEVITALS_VERSION' ) ) {
-	define( 'SITEVITALS_VERSION', '0.1.2' );
+	define( 'SITEVITALS_VERSION', '0.1.3' );
 }
 
 $sitevitals_autoload = __DIR__ . '/vendor/autoload.php';
