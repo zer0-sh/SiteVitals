@@ -54,8 +54,8 @@ $sitevitals_values = array_merge(
 		<div class="sitevitals-brand">
 			<span class="sitevitals-brand-mark" aria-hidden="true">
 				<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-					<path d="M8 12l3 3 5-6" />
+					<path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06" />
+					<path d="M15 19l2 2l4 -4" />
 				</svg>
 			</span>
 			<div class="sitevitals-brand-text">
@@ -128,9 +128,11 @@ $sitevitals_values = array_merge(
 			<div class="sitevitals-card sitevitals-tech">
 				<span class="sitevitals-tech-icon sitevitals-tech-icon-globe" aria-hidden="true">
 					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<circle cx="12" cy="12" r="9" />
-						<path d="M3 12h18" />
-						<path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z" />
+						<path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+						<path d="M3.6 9h16.8" />
+						<path d="M3.6 15h16.8" />
+						<path d="M11.5 3a17 17 0 0 0 0 18" />
+						<path d="M12.5 3a17 17 0 0 1 0 18" />
 					</svg>
 				</span>
 				<div class="sitevitals-tech-text">
@@ -145,7 +147,16 @@ $sitevitals_values = array_merge(
 
 			<div class="sitevitals-tech-pair">
 				<div class="sitevitals-card sitevitals-tech">
-					<span class="sitevitals-tech-icon sitevitals-tech-icon-wp" aria-hidden="true">W</span>
+					<span class="sitevitals-tech-icon sitevitals-tech-icon-wp" aria-hidden="true">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M9.5 9h3" />
+							<path d="M4 9h2.5" />
+							<path d="M11 9l3 11l4 -9" />
+							<path d="M5.5 9l3.5 11l3 -7" />
+							<path d="M18 11c.177 -.528 1 -1.364 1 -2.5c0 -1.78 -.776 -2.5 -1.875 -2.5c-.898 0 -1.125 .812 -1.125 1.429c0 1.83 2 2.058 2 3.571" />
+							<path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+						</svg>
+					</span>
 					<div class="sitevitals-tech-text">
 						<div class="sitevitals-tech-label"><?php esc_html_e( 'WordPress', 'sitevitals' ); ?></div>
 						<div class="sitevitals-tech-value"><?php echo esc_html( $sitevitals_values['core'] ); ?></div>
@@ -153,7 +164,15 @@ $sitevitals_values = array_merge(
 				</div>
 
 				<div class="sitevitals-card sitevitals-tech">
-					<span class="sitevitals-tech-icon sitevitals-tech-icon-php" aria-hidden="true">php</span>
+					<span class="sitevitals-tech-icon sitevitals-tech-icon-php" aria-hidden="true">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M2 12a10 9 0 1 0 20 0a10 9 0 1 0 -20 0" />
+							<path d="M5.5 15l.395 -1.974l.605 -3.026h1.32a1 1 0 0 1 .986 1.164l-.167 1a1 1 0 0 1 -.986 .836h-1.653" />
+							<path d="M15.5 15l.395 -1.974l.605 -3.026h1.32a1 1 0 0 1 .986 1.164l-.167 1a1 1 0 0 1 -.986 .836h-1.653" />
+							<path d="M12 7.5l-1 5.5" />
+							<path d="M11.6 10h2.4l-.5 3" />
+						</svg>
+					</span>
 					<div class="sitevitals-tech-text">
 						<div class="sitevitals-tech-label"><?php esc_html_e( 'PHP', 'sitevitals' ); ?></div>
 						<div class="sitevitals-tech-value"><?php echo esc_html( $sitevitals_values['php'] ); ?></div>
@@ -164,9 +183,10 @@ $sitevitals_values = array_merge(
 			<div class="sitevitals-card sitevitals-tech">
 				<span class="sitevitals-tech-icon sitevitals-tech-icon-server" aria-hidden="true">
 					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<rect x="3" y="4" width="18" height="7" rx="2" />
-						<rect x="3" y="13" width="18" height="7" rx="2" />
-						<path d="M7 7.5h.01M7 16.5h.01" />
+						<path d="M3 7a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-2" />
+						<path d="M3 15a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -2" />
+						<path d="M7 8l0 .01" />
+						<path d="M7 16l0 .01" />
 					</svg>
 				</span>
 				<div class="sitevitals-tech-text">

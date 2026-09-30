@@ -24,8 +24,9 @@ services:
       WORDPRESS_DB_USER: wp_user
       WORDPRESS_DB_PASSWORD: wp_password
     volumes:
-      - ../:/var/www/html/wp-content/plugins/sitevitals
       - ../wp-content/plugins:/var/www/html/wp-content/plugins
+      - ../:/var/www/html/wp-content/plugins/sitevitals
+      - sitevitals_source_content:/var/www/html/wp-content/plugins/sitevitals/wp-content
 
   # 3. Tooling
   composer:
@@ -37,3 +38,4 @@ services:
 
 volumes:
   db_data:
+  sitevitals_source_content:

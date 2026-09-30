@@ -11,6 +11,13 @@
 
 ## [Unreleased]
 
+### Interfaz
+
+- Sustituidos los iconos genéricos del dashboard por trazos inline de Tabler Icons, con licencia MIT.
+- Corregido el orden de los volúmenes Docker para que Plugin Check detecte el slug `sitevitals` y su text domain correspondiente.
+- Aislado el `wp-content/` local dentro del montaje Docker para que los plugins de desarrollo no se analicen como parte de SiteVitals.
+- Documentada la excepción PHPCS del filtro core `xmlrpc_enabled`.
+
 ### Etapa 0 - Alcance y decisiones iniciales
 
 - [x] Confirmado que el producto será un plugin de WordPress Open Source.

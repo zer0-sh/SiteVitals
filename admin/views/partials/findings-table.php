@@ -41,7 +41,13 @@ $sitevitals_restore = isset( $sitevitals_restore ) ? (bool) $sitevitals_restore 
 			<tr>
 				<td class="sitevitals-finding-cell">
 					<span class="sitevitals-finding-title"><?php echo esc_html( $sitevitals_finding['title'] ); ?></span>
-					<span class="sitevitals-info-icon" title="<?php echo esc_attr( $sitevitals_finding['description'] ); ?>">i</span>
+					<span class="sitevitals-info-icon" title="<?php echo esc_attr( $sitevitals_finding['description'] ); ?>" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+							<path d="M12 9h.01" />
+							<path d="M11 12h1v4h1" />
+						</svg>
+					</span>
 					<br />
 					<span class="sitevitals-finding-id"><?php echo esc_html( $sitevitals_finding['id'] ); ?></span>
 					<?php if ( '' !== $sitevitals_finding['value'] ) : ?>
@@ -107,7 +113,13 @@ $sitevitals_restore = isset( $sitevitals_restore ) ? (bool) $sitevitals_restore 
 												<?php endif; ?>
 											><?php echo esc_html( $sitevitals_child['severity_label'] ); ?></span>
 											<span class="sitevitals-sub-title"><?php echo esc_html( $sitevitals_child['title'] ); ?></span>
-											<span class="sitevitals-info-icon" title="<?php echo esc_attr( $sitevitals_child['description'] ); ?>">i</span>
+										<span class="sitevitals-info-icon" title="<?php echo esc_attr( $sitevitals_child['description'] ); ?>" aria-hidden="true">
+											<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+												<path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+												<path d="M12 9h.01" />
+												<path d="M11 12h1v4h1" />
+											</svg>
+										</span>
 											<br />
 											<span class="sitevitals-sub-id"><?php echo esc_html( $sitevitals_child['id'] ); ?></span>
 											<span class="sitevitals-sub-meta"><?php echo esc_html( $sitevitals_child['recommendation'] ); ?></span>

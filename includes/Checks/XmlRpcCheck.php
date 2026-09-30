@@ -32,6 +32,7 @@ final class XmlRpcCheck extends AbstractCheck {
 	 */
 	public function __construct( ?callable $enabled_source = null ) {
 		$this->enabled_source = $enabled_source ?? static function (): bool {
+			// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- WordPress core filter; its name must remain unchanged.
 			return (bool) \apply_filters( 'xmlrpc_enabled', true );
 		};
 	}
