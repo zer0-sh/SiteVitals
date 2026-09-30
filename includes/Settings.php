@@ -2,15 +2,15 @@
 /**
  * Configuración del plugin.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals;
+namespace SiteVitals;
 
 /**
- * Snapshot inmutable de la configuración de WPVitals.
+ * Snapshot inmutable de la configuración de SiteVitals.
  *
  * Recoge la frecuencia del escaneo programado, el envío de informes por
  * correo y el destinatario opcional. La construcción valida de forma estricta;

@@ -2,14 +2,14 @@
 /**
  * Contrato común de los checks locales.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
+use SiteVitals\Result;
 
 /**
  * Contrato de un check de solo lectura.

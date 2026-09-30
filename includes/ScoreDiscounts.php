@@ -2,12 +2,12 @@
 /**
  * Tabla base de descuentos del Health Score.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals;
+namespace SiteVitals;
 
 /**
  * Descuentos por nivel de hallazgo.

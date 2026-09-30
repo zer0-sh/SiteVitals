@@ -2,12 +2,12 @@
 /**
  * Datos estáticos del sitio para el panel.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Admin;
+namespace SiteVitals\Admin;
 
 /**
  * Transformador puro de la información estática del sitio.

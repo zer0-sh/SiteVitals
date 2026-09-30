@@ -1,12 +1,12 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Checks\PluginsUpdatesCheck;
-use WPVitals\Checks\ThemesUpdatesCheck;
-use WPVitals\Result;
+use SiteVitals\Checks\PluginsUpdatesCheck;
+use SiteVitals\Checks\ThemesUpdatesCheck;
+use SiteVitals\Result;
 
 final class UpdatesCheckTest extends TestCase {
 

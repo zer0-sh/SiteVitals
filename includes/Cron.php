@@ -2,12 +2,12 @@
 /**
  * Gestión del escaneo programado mediante WP-Cron.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals;
+namespace SiteVitals;
 
 /**
  * Programa y limpia el evento cron del escaneo según la frecuencia elegida.
@@ -23,7 +23,7 @@ final class Cron {
 	 *
 	 * @var string
 	 */
-	const HOOK = 'wpvitals_scan_scheduled';
+	const HOOK = 'sitevitals_scan_scheduled';
 
 	/**
 	 * Recurrencia nativa diaria de WordPress.
@@ -37,14 +37,14 @@ final class Cron {
 	 *
 	 * @var string
 	 */
-	const RECURRENCE_WEEKLY = 'wpvitals_weekly';
+	const RECURRENCE_WEEKLY = 'sitevitals_weekly';
 
 	/**
 	 * Recurrencia mensual propia del plugin.
 	 *
 	 * @var string
 	 */
-	const RECURRENCE_MONTHLY = 'wpvitals_monthly';
+	const RECURRENCE_MONTHLY = 'sitevitals_monthly';
 
 	/**
 	 * Lector de la próxima ejecución inyectable.
@@ -159,12 +159,12 @@ final class Cron {
 	public static function add_schedules( array $schedules ): array {
 		$schedules[ self::RECURRENCE_WEEKLY ] = array(
 			'interval' => Settings::INTERVAL_WEEKLY,
-			'display'  => __( 'Weekly', 'wpvitals' ),
+			'display'  => __( 'Weekly', 'sitevitals' ),
 		);
 
 		$schedules[ self::RECURRENCE_MONTHLY ] = array(
 			'interval' => Settings::INTERVAL_MONTHLY,
-			'display'  => __( 'Monthly', 'wpvitals' ),
+			'display'  => __( 'Monthly', 'sitevitals' ),
 		);
 
 		return $schedules;

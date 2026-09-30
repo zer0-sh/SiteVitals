@@ -2,12 +2,12 @@
 /**
  * Persistencia del último resultado de escaneo.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals;
+namespace SiteVitals;
 
 /**
  * Guarda y recupera el último resultado completo de escaneo.
@@ -23,7 +23,7 @@ final class ScanStore {
 	 *
 	 * @var string
 	 */
-	const OPTION_NAME = 'wpvitals_last_scan';
+	const OPTION_NAME = 'sitevitals_last_scan';
 
 	/**
 	 * Lector de opciones inyectable.

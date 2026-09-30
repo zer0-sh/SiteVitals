@@ -2,20 +2,20 @@
 /**
  * Pantallas de administración del plugin.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Admin;
+namespace SiteVitals\Admin;
 
-use WPVitals\Cron;
-use WPVitals\IgnoredStore;
-use WPVitals\ScanOutcome;
-use WPVitals\ScanRunner;
-use WPVitals\ScanStore;
-use WPVitals\Settings;
-use WPVitals\SettingsStore;
+use SiteVitals\Cron;
+use SiteVitals\IgnoredStore;
+use SiteVitals\ScanOutcome;
+use SiteVitals\ScanRunner;
+use SiteVitals\ScanStore;
+use SiteVitals\Settings;
+use SiteVitals\SettingsStore;
 
 /**
  * Registra el panel y la pantalla de ajustes y atiende sus formularios.
@@ -31,56 +31,56 @@ final class AdminPage {
 	 *
 	 * @var string
 	 */
-	const SLUG = 'wpvitals';
+	const SLUG = 'sitevitals';
 
 	/**
 	 * Slug de la pantalla de ajustes.
 	 *
 	 * @var string
 	 */
-	const SLUG_SETTINGS = 'wpvitals-settings';
+	const SLUG_SETTINGS = 'sitevitals-settings';
 
 	/**
 	 * Acción admin_post del escaneo manual.
 	 *
 	 * @var string
 	 */
-	const SCAN_ACTION = 'wpvitals_scan';
+	const SCAN_ACTION = 'sitevitals_scan';
 
 	/**
 	 * Acción admin_post de guardado de ajustes.
 	 *
 	 * @var string
 	 */
-	const SETTINGS_ACTION = 'wpvitals_settings';
+	const SETTINGS_ACTION = 'sitevitals_settings';
 
 	/**
 	 * Acción admin_post para ignorar un hallazgo.
 	 *
 	 * @var string
 	 */
-	const IGNORE_ACTION = 'wpvitals_ignore';
+	const IGNORE_ACTION = 'sitevitals_ignore';
 
 	/**
 	 * Acción admin_post para restaurar un hallazgo ignorado.
 	 *
 	 * @var string
 	 */
-	const UNIGNORE_ACTION = 'wpvitals_unignore';
+	const UNIGNORE_ACTION = 'sitevitals_unignore';
 
 	/**
 	 * Acción admin_post para restaurar todos los ignorados.
 	 *
 	 * @var string
 	 */
-	const RESTORE_ALL_ACTION = 'wpvitals_restore_all';
+	const RESTORE_ALL_ACTION = 'sitevitals_restore_all';
 
 	/**
 	 * Clave de la transient que bloquea escaneos simultáneos.
 	 *
 	 * @var string
 	 */
-	const LOCK_KEY = 'wpvitals_scan_lock';
+	const LOCK_KEY = 'sitevitals_scan_lock';
 
 	/**
 	 * Segundos de vigencia del bloqueo del escaneo.
@@ -95,8 +95,8 @@ final class AdminPage {
 	 * @var string[]
 	 */
 	const SCREENS = array(
-		'toplevel_page_wpvitals',
-		'wpvitals_page_wpvitals-settings',
+		'toplevel_page_sitevitals',
+		'sitevitals_page_sitevitals-settings',
 	);
 
 	/**
@@ -173,8 +173,8 @@ final class AdminPage {
 	 */
 	public function register_menu(): void {
 		\add_menu_page(
-			__( 'Vitals', 'wpvitals' ),
-			__( 'Vitals', 'wpvitals' ),
+			__( 'Vitals', 'sitevitals' ),
+			__( 'Vitals', 'sitevitals' ),
 			'manage_options',
 			self::SLUG,
 			array( $this, 'render' ),
@@ -184,8 +184,8 @@ final class AdminPage {
 
 		\add_submenu_page(
 			self::SLUG,
-			__( 'Settings', 'wpvitals' ),
-			__( 'Settings', 'wpvitals' ),
+			__( 'Settings', 'sitevitals' ),
+			__( 'Settings', 'sitevitals' ),
 			'manage_options',
 			self::SLUG_SETTINGS,
 			array( $this, 'render_settings' )
@@ -199,14 +199,14 @@ final class AdminPage {
 	 */
 	public function handle_scan(): void {
 		if ( ! \current_user_can( 'manage_options' ) ) {
-			\wp_die( \esc_html__( 'You do not have permission to run a scan.', 'wpvitals' ) );
+			\wp_die( \esc_html__( 'You do not have permission to run a scan.', 'sitevitals' ) );
 		}
 
 		\check_admin_referer( self::SCAN_ACTION );
 
 		if ( false !== \get_transient( self::LOCK_KEY ) ) {
 			\wp_safe_redirect(
-				\add_query_arg( 'wpvitals_scan', 'busy', \admin_url( 'admin.php?page=' . self::SLUG ) )
+				\add_query_arg( 'sitevitals_scan', 'busy', \admin_url( 'admin.php?page=' . self::SLUG ) )
 			);
 			exit;
 		}
@@ -223,7 +223,7 @@ final class AdminPage {
 		\delete_transient( self::LOCK_KEY );
 
 		\wp_safe_redirect(
-			\add_query_arg( 'wpvitals_scan', $status, \admin_url( 'admin.php?page=' . self::SLUG ) )
+			\add_query_arg( 'sitevitals_scan', $status, \admin_url( 'admin.php?page=' . self::SLUG ) )
 		);
 		exit;
 	}
@@ -235,13 +235,13 @@ final class AdminPage {
 	 */
 	public function handle_settings(): void {
 		if ( ! \current_user_can( 'manage_options' ) ) {
-			\wp_die( \esc_html__( 'You do not have permission to modify the settings.', 'wpvitals' ) );
+			\wp_die( \esc_html__( 'You do not have permission to modify the settings.', 'sitevitals' ) );
 		}
 
 		\check_admin_referer( self::SETTINGS_ACTION );
 
 		// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated, WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.NonceVerification.Missing -- Los campos crudos del formulario se sanean en Settings::from_unsafe() con sanitize_email/is_email; la existencia se comprueba dentro del propio helper.
-		$raw = isset( $_POST['wpvitals'] ) && is_array( $_POST['wpvitals'] ) ? $_POST['wpvitals'] : array();
+		$raw = isset( $_POST['sitevitals'] ) && is_array( $_POST['sitevitals'] ) ? $_POST['sitevitals'] : array();
 		// phpcs:enable WordPress.Security.ValidatedSanitizedInput.InputNotValidated, WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.NonceVerification.Missing
 
 		$settings = Settings::from_unsafe( $raw );
@@ -250,7 +250,7 @@ final class AdminPage {
 		$this->cron->schedule( $settings );
 
 		\wp_safe_redirect(
-			\add_query_arg( 'wpvitals_settings', 'updated', \admin_url( 'admin.php?page=' . self::SLUG_SETTINGS ) )
+			\add_query_arg( 'sitevitals_settings', 'updated', \admin_url( 'admin.php?page=' . self::SLUG_SETTINGS ) )
 		);
 		exit;
 	}
@@ -280,7 +280,7 @@ final class AdminPage {
 	 */
 	public function handle_restore_all(): void {
 		if ( ! \current_user_can( 'manage_options' ) ) {
-			\wp_die( \esc_html__( 'You do not have permission to modify ignored findings.', 'wpvitals' ) );
+			\wp_die( \esc_html__( 'You do not have permission to modify ignored findings.', 'sitevitals' ) );
 		}
 
 		\check_admin_referer( self::RESTORE_ALL_ACTION );
@@ -288,7 +288,7 @@ final class AdminPage {
 		$this->ignored_store->clear();
 
 		\wp_safe_redirect(
-			\add_query_arg( 'wpvitals_scan', 'restored_all', \admin_url( 'admin.php?page=' . self::SLUG ) )
+			\add_query_arg( 'sitevitals_scan', 'restored_all', \admin_url( 'admin.php?page=' . self::SLUG ) )
 		);
 		exit;
 	}
@@ -303,7 +303,7 @@ final class AdminPage {
 	 */
 	private function toggle_ignored( string $action, string $status ): void {
 		if ( ! \current_user_can( 'manage_options' ) ) {
-			\wp_die( \esc_html__( 'You do not have permission to modify ignored findings.', 'wpvitals' ) );
+			\wp_die( \esc_html__( 'You do not have permission to modify ignored findings.', 'sitevitals' ) );
 		}
 
 		\check_admin_referer( $action );
@@ -327,7 +327,7 @@ final class AdminPage {
 		}
 
 		\wp_safe_redirect(
-			\add_query_arg( 'wpvitals_scan', $status, \admin_url( 'admin.php?page=' . self::SLUG ) )
+			\add_query_arg( 'sitevitals_scan', $status, \admin_url( 'admin.php?page=' . self::SLUG ) )
 		);
 		exit;
 	}
@@ -345,8 +345,8 @@ final class AdminPage {
 		}
 
 		\wp_enqueue_style(
-			'wpvitals-admin',
-			\plugin_dir_url( \WPVITALS_PLUGIN_FILE ) . 'assets/css/admin.css',
+			'sitevitals-admin',
+			\plugin_dir_url( \SITEVITALS_PLUGIN_FILE ) . 'assets/css/admin.css',
 			array(),
 			'0.1.0'
 		);
@@ -359,7 +359,7 @@ final class AdminPage {
 	 */
 	public function render(): void {
 		$data                 = DashboardData::build( $this->store->get(), $this->ignored_store->get() );
-		$data['notice']       = self::query_status( 'wpvitals_scan' );
+		$data['notice']       = self::query_status( 'sitevitals_scan' );
 		$data['settings']     = $this->settings_store->get();
 		$data['next_run']     = $this->cron->next_run();
 		$data['site']         = SiteInfo::build();
@@ -375,7 +375,7 @@ final class AdminPage {
 	 */
 	public function render_settings(): void {
 		$data             = array();
-		$data['notice']   = self::query_status( 'wpvitals_settings' );
+		$data['notice']   = self::query_status( 'sitevitals_settings' );
 		$data['settings'] = $this->settings_store->get();
 		$data['next_run'] = $this->cron->next_run();
 
@@ -472,19 +472,19 @@ final class AdminPage {
 	public static function screen_label( ?string $screen ): string {
 		switch ( $screen ) {
 			case 'plugins':
-				return __( 'Plugins', 'wpvitals' );
+				return __( 'Plugins', 'sitevitals' );
 
 			case 'themes':
-				return __( 'Themes', 'wpvitals' );
+				return __( 'Themes', 'sitevitals' );
 
 			case 'update-core':
-				return __( 'Updates', 'wpvitals' );
+				return __( 'Updates', 'sitevitals' );
 
 			case 'options-general':
-				return __( 'General settings', 'wpvitals' );
+				return __( 'General settings', 'sitevitals' );
 
 			case 'site-health':
-				return __( 'Site health', 'wpvitals' );
+				return __( 'Site health', 'sitevitals' );
 
 			default:
 				return '';

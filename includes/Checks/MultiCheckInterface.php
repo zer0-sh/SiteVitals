@@ -2,14 +2,14 @@
 /**
  * Contrato para checks que generan múltiples resultados.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
+use SiteVitals\Result;
 
 /**
  * Extensión opcional de CheckInterface para checks que producen un

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="WPVitals">
-	<description>WordPress Coding Standards para el plugin WPVitals.</description>
+<ruleset name="SiteVitals">
+	<description>WordPress Coding Standards para el plugin SiteVitals.</description>
 
 	<file>.</file>
 
@@ -11,7 +11,7 @@
 
 	<config name="minimum_supported_wp_version" value="6.5" />
 	<config name="testVersion" value="7.4-8.5" />
-	<config name="text_domain" value="wpvitals" />
+	<config name="text_domain" value="sitevitals" />
 
 	<!--
 		El proyecto usa autoload PSR-4 (composer.json): el nombre de los

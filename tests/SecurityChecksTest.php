@@ -1,15 +1,15 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Checks\HttpsCheck;
-use WPVitals\Checks\DebugCheck;
-use WPVitals\Checks\DebugLogCheck;
-use WPVitals\Checks\XmlRpcCheck;
-use WPVitals\Checks\FileEditCheck;
-use WPVitals\Result;
+use SiteVitals\Checks\HttpsCheck;
+use SiteVitals\Checks\DebugCheck;
+use SiteVitals\Checks\DebugLogCheck;
+use SiteVitals\Checks\XmlRpcCheck;
+use SiteVitals\Checks\FileEditCheck;
+use SiteVitals\Result;
 
 final class SecurityChecksTest extends TestCase {
 

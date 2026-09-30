@@ -1,12 +1,12 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Checks\CronCheck;
-use WPVitals\Checks\LoopbackCheck;
-use WPVitals\Result;
+use SiteVitals\Checks\CronCheck;
+use SiteVitals\Checks\LoopbackCheck;
+use SiteVitals\Result;
 
 final class ReliabilityChecksTest extends TestCase {
 

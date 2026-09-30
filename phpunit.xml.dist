@@ -8,7 +8,7 @@
 	failOnWarning="true"
 	>
 	<testsuites>
-		<testsuite name="wpvitals">
+		<testsuite name="sitevitals">
 			<directory>tests/</directory>
 		</testsuite>
 	</testsuites>

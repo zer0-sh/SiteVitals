@@ -1,32 +1,32 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WPVitals 0.1.0\n"
-"Report-Msgid-Bugs-To: https://github.com/zer0-sh/wpvitals/issues\n"
+"Project-Id-Version: SiteVitals 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/zer0-sh/sitevitals/issues\n"
 "POT-Creation-Date: 2026-09-14 02:27+0000\n"
 "PO-Revision-Date: 2026-09-14 02:27+0000\n"
-"Last-Translator: WPVitals <dev@wpvitals.local>\n"
-"Language-Team: Spanish (Spain) <translations@wpvitals.local>\n"
+"Last-Translator: SiteVitals <dev@sitevitals.local>\n"
+"Language-Team: Spanish (Spain) <translations@sitevitals.local>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Domain: wpvitals\n"
+"X-Domain: sitevitals\n"
 
 #. Plugin Name of the plugin
 #. Author of the plugin
-#: wpvitals.php
+#: sitevitals.php
 #: admin/views/dashboard.php:62
-msgid "WPVitals"
-msgstr "WPVitals"
+msgid "SiteVitals"
+msgstr "SiteVitals"
 
 #. Plugin URI of the plugin
-#: wpvitals.php
-msgid "https://github.com/zer0-sh/wpvitals"
-msgstr "https://github.com/zer0-sh/wpvitals"
+#: sitevitals.php
+msgid "https://github.com/zer0-sh/sitevitals"
+msgstr "https://github.com/zer0-sh/sitevitals"
 
 #. Description of the plugin
-#: wpvitals.php
+#: sitevitals.php
 msgid "Ultra lightweight WordPress plugin to monitor your website's performance and uptime."
 msgstr "Plugin de WordPress ultraligero para monitorizar el rendimiento y la disponibilidad de tu sitio web."
 
@@ -419,8 +419,8 @@ msgid "Click for details"
 msgstr "Click para desglose"
 
 #: admin/views/settings.php:17
-msgid "WPVitals Settings"
-msgstr "Ajustes de WPVitals"
+msgid "SiteVitals Settings"
+msgstr "Ajustes de SiteVitals"
 
 #: admin/views/settings.php:21
 msgid "Settings saved successfully."

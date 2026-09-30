@@ -2,12 +2,12 @@
 /**
  * Informe por correo del resultado de un escaneo.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals;
+namespace SiteVitals;
 
 /**
  * Compone y envía el resumen por correo tras un escaneo.
@@ -136,8 +136,8 @@ final class MailReport {
 	 */
 	public function subject( ScanOutcome $outcome ): string {
 		return sprintf(
-			'[WPVitals] %s %d/100 — %s',
-			__( 'Health Score', 'wpvitals' ),
+			'[SiteVitals] %s %d/100 — %s',
+			__( 'Health Score', 'sitevitals' ),
 			$outcome->get_total(),
 			$this->state_label( $outcome->get_state() )
 		);
@@ -154,15 +154,15 @@ final class MailReport {
 		$lines = array(
 			sprintf(
 				'%s: %d/100 (%s)',
-				__( 'Health Score', 'wpvitals' ),
+				__( 'Health Score', 'sitevitals' ),
 				$outcome->get_total(),
 				$this->state_label( $outcome->get_state() )
 			),
 			'',
-			sprintf( '%s: %d', __( 'Active vulnerabilities', 'wpvitals' ), $outcome->count_vulnerabilities() ),
-			sprintf( '%s: %d', __( 'Pending updates', 'wpvitals' ), $outcome->count_pending_updates() ),
+			sprintf( '%s: %d', __( 'Active vulnerabilities', 'sitevitals' ), $outcome->count_vulnerabilities() ),
+			sprintf( '%s: %d', __( 'Pending updates', 'sitevitals' ), $outcome->count_pending_updates() ),
 			'',
-			__( 'Findings:', 'wpvitals' ),
+			__( 'Findings:', 'sitevitals' ),
 		);
 
 		$added = 0;
@@ -182,7 +182,7 @@ final class MailReport {
 			if ( self::MAX_FINDINGS === $added ) {
 				$lines[] = sprintf(
 					/* translators: %d: number of additional findings. */
-					__( '…and %d more findings.', 'wpvitals' ),
+					__( '…and %d more findings.', 'sitevitals' ),
 					$total - $added
 				);
 				break;
@@ -199,7 +199,7 @@ final class MailReport {
 		}
 
 		if ( 0 === $added ) {
-			$lines[] = __( 'No relevant findings detected.', 'wpvitals' );
+			$lines[] = __( 'No relevant findings detected.', 'sitevitals' );
 		}
 
 		return implode( "\n", $lines );
@@ -215,14 +215,14 @@ final class MailReport {
 	private function state_label( string $state ): string {
 		switch ( $state ) {
 			case Score::STATE_HEALTHY:
-				return __( 'Healthy', 'wpvitals' );
+				return __( 'Healthy', 'sitevitals' );
 
 			case Score::STATE_CRITICAL:
-				return __( 'Critical', 'wpvitals' );
+				return __( 'Critical', 'sitevitals' );
 
 			case Score::STATE_ATTENTION:
 			default:
-				return __( 'Needs attention', 'wpvitals' );
+				return __( 'Needs attention', 'sitevitals' );
 		}
 	}
 
@@ -236,20 +236,20 @@ final class MailReport {
 	private function severity_label( string $severity ): string {
 		switch ( $severity ) {
 			case Result::SEVERITY_INFO:
-				return __( 'Info', 'wpvitals' );
+				return __( 'Info', 'sitevitals' );
 
 			case Result::SEVERITY_WARNING:
-				return __( 'Warning', 'wpvitals' );
+				return __( 'Warning', 'sitevitals' );
 
 			case Result::SEVERITY_CRITICAL:
-				return __( 'Critical', 'wpvitals' );
+				return __( 'Critical', 'sitevitals' );
 
 			case Result::SEVERITY_ERROR:
-				return __( 'Error', 'wpvitals' );
+				return __( 'Error', 'sitevitals' );
 
 			case Result::SEVERITY_OK:
 			default:
-				return __( 'Good', 'wpvitals' );
+				return __( 'Good', 'sitevitals' );
 		}
 	}
 }

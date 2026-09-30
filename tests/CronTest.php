@@ -1,11 +1,11 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Cron;
-use WPVitals\Settings;
+use SiteVitals\Cron;
+use SiteVitals\Settings;
 
 final class CronTest extends TestCase {
 

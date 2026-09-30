@@ -2,15 +2,15 @@
 /**
  * Persistencia de la configuración del plugin.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals;
+namespace SiteVitals;
 
 /**
- * Guarda y recupera los ajustes de WPVitals.
+ * Guarda y recupera los ajustes de SiteVitals.
  *
  * Usa una opción de WordPress cuyas funciones get/update se inyectan para
  * poder testearlo standalone. Un valor guardado corrupto se trata como
@@ -23,7 +23,7 @@ final class SettingsStore {
 	 *
 	 * @var string
 	 */
-	const OPTION_NAME = 'wpvitals_settings';
+	const OPTION_NAME = 'sitevitals_settings';
 
 	/**
 	 * Lector de opciones inyectable.

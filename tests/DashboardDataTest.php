@@ -1,13 +1,13 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Admin\DashboardData;
-use WPVitals\Result;
-use WPVitals\ScanOutcome;
-use WPVitals\Score;
+use SiteVitals\Admin\DashboardData;
+use SiteVitals\Result;
+use SiteVitals\ScanOutcome;
+use SiteVitals\Score;
 
 final class DashboardDataTest extends TestCase {
 

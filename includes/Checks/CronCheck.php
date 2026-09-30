@@ -2,15 +2,15 @@
 /**
  * Check de WP-Cron.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Comprueba el estado de WP-Cron: si está deshabilitado vía
@@ -76,7 +76,7 @@ final class CronCheck extends AbstractCheck {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'WP-Cron', 'wpvitals' );
+		return __( 'WP-Cron', 'sitevitals' );
 	}
 
 	/**
@@ -95,7 +95,7 @@ final class CronCheck extends AbstractCheck {
 			return $this->result(
 				Result::SEVERITY_INFO,
 				$value,
-				__( 'WP-Cron is disabled; make sure a system cron runs wp-cron.php instead of relying on visits.', 'wpvitals' )
+				__( 'WP-Cron is disabled; make sure a system cron runs wp-cron.php instead of relying on visits.', 'sitevitals' )
 			);
 		}
 
@@ -103,7 +103,7 @@ final class CronCheck extends AbstractCheck {
 			return $this->result(
 				Result::SEVERITY_WARNING,
 				$value,
-				__( 'WP-Cron is disabled and no relevant events are detected; set up an external cron calling wp-cron.php or re-enable WP-Cron.', 'wpvitals' ),
+				__( 'WP-Cron is disabled and no relevant events are detected; set up an external cron calling wp-cron.php or re-enable WP-Cron.', 'sitevitals' ),
 				5
 			);
 		}
@@ -115,7 +115,7 @@ final class CronCheck extends AbstractCheck {
 		return $this->result(
 			Result::SEVERITY_WARNING,
 			$value,
-			__( 'WP-Cron is active but no relevant events are detected; make sure the site receives traffic or run a scan to trigger scheduled tasks.', 'wpvitals' ),
+			__( 'WP-Cron is active but no relevant events are detected; make sure the site receives traffic or run a scan to trigger scheduled tasks.', 'sitevitals' ),
 			ScoreDiscounts::MINOR
 		);
 	}

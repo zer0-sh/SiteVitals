@@ -1,11 +1,11 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Checks\SecurityHeadersCheck;
-use WPVitals\Result;
+use SiteVitals\Checks\SecurityHeadersCheck;
+use SiteVitals\Result;
 
 final class SecurityHeadersCheckTest extends TestCase {
 

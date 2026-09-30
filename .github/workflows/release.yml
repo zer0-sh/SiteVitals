@@ -26,7 +26,7 @@ jobs:
           set -euo pipefail
 
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            BASE_VERSION="$(sed -n "s/^[[:space:]]*define( 'WPVITALS_VERSION', '\([^']*\)'.*/\1/p" wpvitals.php | head -n 1)"
+            BASE_VERSION="$(sed -n "s/^[[:space:]]*define( 'SITEVITALS_VERSION', '\([^']*\)'.*/\1/p" sitevitals.php | head -n 1)"
             if [[ ! "${BASE_VERSION}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
               echo "::error::Invalid current plugin version: ${BASE_VERSION}"
               exit 1
@@ -41,13 +41,13 @@ jobs:
               exit 1
             fi
 
-            sed -i -E "s/^( \* Version:[[:space:]]+)[0-9.]+/\1${VERSION}/" wpvitals.php
-            sed -i -E "s/(define\( 'WPVITALS_VERSION', ')[0-9.]+(' \);)/\1${VERSION}\2/" wpvitals.php
+            sed -i -E "s/^( \* Version:[[:space:]]+)[0-9.]+/\1${VERSION}/" sitevitals.php
+            sed -i -E "s/(define\( 'SITEVITALS_VERSION', ')[0-9.]+(' \);)/\1${VERSION}\2/" sitevitals.php
             sed -i -E "s/^(Stable tag: )[0-9.]+/\1${VERSION}/" readme.txt
 
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add wpvitals.php readme.txt
+            git add sitevitals.php readme.txt
             git commit -m "chore: prepare release ${VERSION}"
             git push origin HEAD:main
 
@@ -78,7 +78,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          FILE_VERSION="$(sed -n "s/^[[:space:]]*define( 'WPVITALS_VERSION', '\([^']*\)'.*/\1/p" wpvitals.php | head -n 1)"
+          FILE_VERSION="$(sed -n "s/^[[:space:]]*define( 'SITEVITALS_VERSION', '\([^']*\)'.*/\1/p" sitevitals.php | head -n 1)"
           README_VERSION="$(sed -n 's/^Stable tag: *//p' readme.txt | head -n 1)"
 
           echo "Plugin version: ${FILE_VERSION}"
@@ -86,7 +86,7 @@ jobs:
           echo "Tag version:    ${VERSION}"
 
           if [[ -z "${FILE_VERSION}" || "${FILE_VERSION}" != "${VERSION}" ]]; then
-            echo "::error::wpvitals.php version does not match ${RELEASE_TAG}"
+            echo "::error::sitevitals.php version does not match ${RELEASE_TAG}"
             exit 1
           fi
 
@@ -103,36 +103,38 @@ jobs:
           set -euo pipefail
 
           rm -rf staging
-          mkdir -p staging/wpvitals
+          mkdir -p staging/sitevitals
           rsync -a --no-owner --no-group \
-            wpvitals.php \
+            sitevitals.php \
             readme.txt \
             LICENSE \
-            staging/wpvitals/
+            composer.json \
+            composer.lock \
+            staging/sitevitals/
           rsync -a --no-owner --no-group \
             includes \
             admin \
             assets \
             languages \
             vendor \
-            staging/wpvitals/
+            staging/sitevitals/
 
-          test -f staging/wpvitals/wpvitals.php
-          test -f staging/wpvitals/vendor/autoload.php
-          test -f staging/wpvitals/readme.txt
-          test -f staging/wpvitals/LICENSE
+          test -f staging/sitevitals/sitevitals.php
+          test -f staging/sitevitals/vendor/autoload.php
+          test -f staging/sitevitals/readme.txt
+          test -f staging/sitevitals/LICENSE
 
       - name: Build and verify ZIP
         env:
-          ZIP_PATH: wpvitals-${{ env.VERSION }}.zip
+          ZIP_PATH: sitevitals-${{ env.VERSION }}.zip
         run: |
           set -euo pipefail
 
-          (cd staging && zip -qr "../${ZIP_PATH}" wpvitals)
+          (cd staging && zip -qr "../${ZIP_PATH}" sitevitals)
           unzip -t "${ZIP_PATH}"
 
-          if ! unzip -Z1 "${ZIP_PATH}" | grep -q '^wpvitals/wpvitals.php$'; then
-            echo "::error::The ZIP does not contain wpvitals/wpvitals.php"
+          if ! unzip -Z1 "${ZIP_PATH}" | grep -q '^sitevitals/sitevitals.php$'; then
+            echo "::error::The ZIP does not contain sitevitals/sitevitals.php"
             exit 1
           fi
 
@@ -141,11 +143,11 @@ jobs:
       - name: Upload ZIP artifact
         uses: actions/upload-artifact@v7
         with:
-          name: wpvitals-${{ env.VERSION }}-zip
-          path: wpvitals-${{ env.VERSION }}.zip
+          name: sitevitals-${{ env.VERSION }}-zip
+          path: sitevitals-${{ env.VERSION }}.zip
           if-no-files-found: error
 
       - name: Publish GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "${RELEASE_TAG}" "wpvitals-${VERSION}.zip" --verify-tag --generate-notes --title "WPVitals ${VERSION}"
+        run: gh release create "${RELEASE_TAG}" "sitevitals-${VERSION}.zip" --verify-tag --generate-notes --title "SiteVitals ${VERSION}"

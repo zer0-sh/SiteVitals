@@ -2,12 +2,12 @@
 /**
  * Resultado completo de un escaneo del sitio.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals;
+namespace SiteVitals;
 
 /**
  * Resultado inmutable de un escaneo completo.

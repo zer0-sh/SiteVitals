@@ -2,12 +2,12 @@
 /**
  * Persistencia de los hallazgos ignorados por el usuario.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals;
+namespace SiteVitals;
 
 /**
  * Guarda y recupera la lista de identificadores de hallazgos ignorados.
@@ -23,7 +23,7 @@ final class IgnoredStore {
 	 *
 	 * @var string
 	 */
-	const OPTION_NAME = 'wpvitals_ignored';
+	const OPTION_NAME = 'sitevitals_ignored';
 
 	/**
 	 * Caracteres permitidos en un identificador de hallazgo.

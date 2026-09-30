@@ -1,8 +1,8 @@
-# Copyright (C) 2026 WPVitals
+# Copyright (C) 2026 SiteVitals
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPVitals 0.1.0\n"
+"Project-Id-Version: SiteVitals 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/app\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,22 +12,22 @@ msgstr ""
 "POT-Creation-Date: 2026-09-14T02:26:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: wpvitals\n"
+"X-Domain: sitevitals\n"
 
 #. Plugin Name of the plugin
 #. Author of the plugin
-#: wpvitals.php
+#: sitevitals.php
 #: admin/views/dashboard.php:62
-msgid "WPVitals"
+msgid "SiteVitals"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: wpvitals.php
-msgid "https://github.com/zer0-sh/wpvitals"
+#: sitevitals.php
+msgid "https://github.com/zer0-sh/sitevitals"
 msgstr ""
 
 #. Description of the plugin
-#: wpvitals.php
+#: sitevitals.php
 msgid "Ultra lightweight WordPress plugin to monitor your website's performance and uptime."
 msgstr ""
 
@@ -420,7 +420,7 @@ msgid "Click for details"
 msgstr ""
 
 #: admin/views/settings.php:17
-msgid "WPVitals Settings"
+msgid "SiteVitals Settings"
 msgstr ""
 
 #: admin/views/settings.php:21

@@ -1,11 +1,11 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Result;
-use WPVitals\Score;
+use SiteVitals\Result;
+use SiteVitals\Score;
 
 final class ScoreTest extends TestCase {
 

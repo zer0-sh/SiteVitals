@@ -2,15 +2,15 @@
 /**
  * Check de WP_DEBUG.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Comprueba si el modo debug de WordPress está activado, lo que puede
@@ -50,7 +50,7 @@ final class DebugCheck extends AbstractCheck {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'WordPress debug mode', 'wpvitals' );
+		return __( 'WordPress debug mode', 'sitevitals' );
 	}
 
 	/**
@@ -69,7 +69,7 @@ final class DebugCheck extends AbstractCheck {
 			return $this->result(
 				Result::SEVERITY_WARNING,
 				$config,
-				__( 'WP_DEBUG and WP_DEBUG_DISPLAY are enabled; PHP errors can be shown in production. Disable them in wp-config.php.', 'wpvitals' ),
+				__( 'WP_DEBUG and WP_DEBUG_DISPLAY are enabled; PHP errors can be shown in production. Disable them in wp-config.php.', 'sitevitals' ),
 				5
 			);
 		}
@@ -77,7 +77,7 @@ final class DebugCheck extends AbstractCheck {
 		return $this->result(
 			Result::SEVERITY_WARNING,
 			$config,
-			__( 'WP_DEBUG is enabled in production; disable it in wp-config.php.', 'wpvitals' ),
+			__( 'WP_DEBUG is enabled in production; disable it in wp-config.php.', 'sitevitals' ),
 			ScoreDiscounts::MINOR
 		);
 	}

@@ -1,10 +1,10 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests\Checks;
+namespace SiteVitals\Tests\Checks;
 
-use WPVitals\Checks\AbstractCheck;
-use WPVitals\Result;
+use SiteVitals\Checks\AbstractCheck;
+use SiteVitals\Result;
 
 final class DuplicateIdCheck extends AbstractCheck {
 

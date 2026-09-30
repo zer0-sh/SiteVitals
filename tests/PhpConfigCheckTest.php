@@ -1,12 +1,12 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Checks\PhpMemoryCheck;
-use WPVitals\Checks\PhpDisplayErrorsCheck;
-use WPVitals\Result;
+use SiteVitals\Checks\PhpMemoryCheck;
+use SiteVitals\Checks\PhpDisplayErrorsCheck;
+use SiteVitals\Result;
 
 final class PhpConfigCheckTest extends TestCase {
 

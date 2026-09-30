@@ -1,11 +1,11 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Checks\WordPressVersionCheck;
-use WPVitals\Result;
+use SiteVitals\Checks\WordPressVersionCheck;
+use SiteVitals\Result;
 
 final class WordPressVersionCheckTest extends TestCase {
 

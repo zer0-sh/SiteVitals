@@ -2,12 +2,12 @@
 /**
  * Resultado inmutable de un check.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals;
+namespace SiteVitals;
 
 /**
  * Valor de retorno de un check.

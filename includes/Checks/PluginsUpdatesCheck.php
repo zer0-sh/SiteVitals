@@ -2,15 +2,15 @@
 /**
  * Check de actualizaciones de plugins.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Detecta plugins con actualizaciones pendientes a partir de la transient
@@ -62,7 +62,7 @@ final class PluginsUpdatesCheck extends AbstractCheck implements MultiCheckInter
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'Outdated plugins', 'wpvitals' );
+		return __( 'Outdated plugins', 'sitevitals' );
 	}
 
 	/**
@@ -91,7 +91,7 @@ final class PluginsUpdatesCheck extends AbstractCheck implements MultiCheckInter
 		foreach ( $outdated as $plugin_file => $new_version ) {
 			$results[] = new Result(
 				'plugin/' . $this->plugin_slug( (string) $plugin_file ),
-				__( 'Outdated plugin', 'wpvitals' ),
+				__( 'Outdated plugin', 'sitevitals' ),
 				Result::SEVERITY_WARNING,
 				array(
 					'plugin'      => (string) $plugin_file,
@@ -99,7 +99,7 @@ final class PluginsUpdatesCheck extends AbstractCheck implements MultiCheckInter
 				),
 				sprintf(
 					/* translators: 1: plugin file, 2: new version, 3: updates URL. */
-					__( 'Plugin %1$s has version %2$s available. Update it from the native updates screen: %3$s', 'wpvitals' ),
+					__( 'Plugin %1$s has version %2$s available. Update it from the native updates screen: %3$s', 'sitevitals' ),
 					(string) $plugin_file,
 					(string) $new_version,
 					$url

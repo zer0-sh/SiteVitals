@@ -2,15 +2,15 @@
 /**
  * Check de las extensiones PHP requeridas por WordPress.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Comprueba que están cargadas las extensiones PHP que WordPress necesita
@@ -62,7 +62,7 @@ final class PhpExtensionsCheck extends AbstractCheck {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'Required PHP extensions', 'wpvitals' );
+		return __( 'Required PHP extensions', 'sitevitals' );
 	}
 
 	/**
@@ -86,7 +86,7 @@ final class PhpExtensionsCheck extends AbstractCheck {
 			$missing,
 			sprintf(
 				/* translators: %s: list of required PHP extensions not found. */
-				__( 'Missing PHP extensions required by WordPress: %s. Install them for full functionality.', 'wpvitals' ),
+				__( 'Missing PHP extensions required by WordPress: %s. Install them for full functionality.', 'sitevitals' ),
 				\implode( ', ', $missing )
 			),
 			ScoreDiscounts::MINOR

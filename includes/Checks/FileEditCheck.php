@@ -2,15 +2,15 @@
 /**
  * Check de DISALLOW_FILE_EDIT.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Comprueba si la edición de archivos desde WP-Admin está permitida
@@ -47,7 +47,7 @@ final class FileEditCheck extends AbstractCheck {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'File editing from the admin', 'wpvitals' );
+		return __( 'File editing from the admin', 'sitevitals' );
 	}
 
 	/**
@@ -63,7 +63,7 @@ final class FileEditCheck extends AbstractCheck {
 		return $this->result(
 			Result::SEVERITY_WARNING,
 			$disabled,
-			__( 'File editing from WP-Admin is allowed; set DISALLOW_FILE_EDIT to true in wp-config.php.', 'wpvitals' ),
+			__( 'File editing from WP-Admin is allowed; set DISALLOW_FILE_EDIT to true in wp-config.php.', 'sitevitals' ),
 			ScoreDiscounts::MINOR
 		);
 	}

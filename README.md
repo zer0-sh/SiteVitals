@@ -1,6 +1,6 @@
 # WordPress Health & Operations Platform
 
-![Banner](docs/assets/WPVitals.png)
+![Banner](docs/assets/SiteVitals.png)
 
 ## ¿Qué es?
 
@@ -31,7 +31,7 @@ cd docker
 docker compose up -d
 ```
 
-WordPress estará disponible en `http://localhost:8080`. El plugin se monta automáticamente en `wp-content/plugins/wpvitals`.
+WordPress estará disponible en `http://localhost:8080`. El plugin se monta automáticamente en `wp-content/plugins/sitevitals`.
 
 #### Procedimiento para detener el entorno local:
 ```bash

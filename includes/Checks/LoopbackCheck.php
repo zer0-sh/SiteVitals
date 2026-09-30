@@ -2,15 +2,15 @@
 /**
  * Check de Loopback Requests.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Ejecuta una petición loopback segura a la propia instalación.
@@ -65,7 +65,7 @@ final class LoopbackCheck extends AbstractCheck {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'Loopback requests', 'wpvitals' );
+		return __( 'Loopback requests', 'sitevitals' );
 	}
 
 	/**
@@ -81,7 +81,7 @@ final class LoopbackCheck extends AbstractCheck {
 		return $this->result(
 			Result::SEVERITY_WARNING,
 			$ok,
-			__( 'The loopback request failed (timeout or blocked connection); processes like cron, updates and email sending depend on it. Check firewalls, server rules and DNS.', 'wpvitals' ),
+			__( 'The loopback request failed (timeout or blocked connection); processes like cron, updates and email sending depend on it. Check firewalls, server rules and DNS.', 'sitevitals' ),
 			ScoreDiscounts::MINOR
 		);
 	}

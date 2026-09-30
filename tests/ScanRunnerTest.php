@@ -1,19 +1,19 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Checker;
-use WPVitals\MailReport;
-use WPVitals\Result;
-use WPVitals\ScanOutcome;
-use WPVitals\Scanner;
-use WPVitals\ScanRunner;
-use WPVitals\ScanStore;
-use WPVitals\Settings;
-use WPVitals\Tests\Checks\OkCheck;
-use WPVitals\VulnerabilityClient;
+use SiteVitals\Checker;
+use SiteVitals\MailReport;
+use SiteVitals\Result;
+use SiteVitals\ScanOutcome;
+use SiteVitals\Scanner;
+use SiteVitals\ScanRunner;
+use SiteVitals\ScanStore;
+use SiteVitals\Settings;
+use SiteVitals\Tests\Checks\OkCheck;
+use SiteVitals\VulnerabilityClient;
 
 final class ScanRunnerTest extends TestCase {
 

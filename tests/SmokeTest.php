@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
 
@@ -11,7 +11,7 @@ final class SmokeTest extends TestCase {
 		$this->assertTrue( class_exists( 'Composer\\InstalledVersions' ) );
 	}
 
-	public function test_wpvitals_abspath_defined(): void {
+	public function test_sitevitals_abspath_defined(): void {
 		$this->assertTrue( defined( 'ABSPATH' ) );
 	}
 }

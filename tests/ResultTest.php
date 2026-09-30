@@ -1,10 +1,10 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Result;
+use SiteVitals\Result;
 
 final class ResultTest extends TestCase {
 

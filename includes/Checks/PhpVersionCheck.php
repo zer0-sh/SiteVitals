@@ -2,15 +2,15 @@
 /**
  * Check de la versión de PHP activa y su estado de soporte.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Evalúa la versión de PHP activa frente a su ciclo de vida (EOL).
@@ -77,7 +77,7 @@ final class PhpVersionCheck extends AbstractCheck {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'PHP version', 'wpvitals' );
+		return __( 'PHP version', 'sitevitals' );
 	}
 
 	/**
@@ -97,7 +97,7 @@ final class PhpVersionCheck extends AbstractCheck {
 				),
 				sprintf(
 					/* translators: %s: detected PHP version. */
-					__( 'No lifecycle data available for PHP %s; check its official support status.', 'wpvitals' ),
+					__( 'No lifecycle data available for PHP %s; check its official support status.', 'sitevitals' ),
 					$version
 				)
 			);
@@ -118,7 +118,7 @@ final class PhpVersionCheck extends AbstractCheck {
 				),
 				sprintf(
 					/* translators: 1: PHP version, 2: EOL date. */
-					__( 'PHP %1$s ended security support on %2$s; update to a supported version.', 'wpvitals' ),
+					__( 'PHP %1$s ended security support on %2$s; update to a supported version.', 'sitevitals' ),
 					$version,
 					$security_until
 				),
@@ -136,7 +136,7 @@ final class PhpVersionCheck extends AbstractCheck {
 				),
 				sprintf(
 					/* translators: 1: PHP version, 2: EOL date. */
-					__( 'PHP %1$s will stop receiving security support on %2$s; plan the update.', 'wpvitals' ),
+					__( 'PHP %1$s will stop receiving security support on %2$s; plan the update.', 'sitevitals' ),
 					$version,
 					$security_until
 				),

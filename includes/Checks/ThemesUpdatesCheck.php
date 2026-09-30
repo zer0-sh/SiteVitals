@@ -2,15 +2,15 @@
 /**
  * Check de actualizaciones de temas.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Detecta temas con actualizaciones pendientes a partir de la transient
@@ -64,7 +64,7 @@ final class ThemesUpdatesCheck extends AbstractCheck implements MultiCheckInterf
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'Outdated themes', 'wpvitals' );
+		return __( 'Outdated themes', 'sitevitals' );
 	}
 
 	/**
@@ -93,7 +93,7 @@ final class ThemesUpdatesCheck extends AbstractCheck implements MultiCheckInterf
 		foreach ( $outdated as $theme_slug => $new_version ) {
 			$results[] = new Result(
 				'theme/' . (string) $theme_slug,
-				__( 'Outdated theme', 'wpvitals' ),
+				__( 'Outdated theme', 'sitevitals' ),
 				Result::SEVERITY_WARNING,
 				array(
 					'theme'       => (string) $theme_slug,
@@ -101,7 +101,7 @@ final class ThemesUpdatesCheck extends AbstractCheck implements MultiCheckInterf
 				),
 				sprintf(
 					/* translators: 1: theme slug, 2: new version, 3: updates URL. */
-					__( 'Theme %1$s has version %2$s available. Update it from the native updates screen: %3$s', 'wpvitals' ),
+					__( 'Theme %1$s has version %2$s available. Update it from the native updates screen: %3$s', 'sitevitals' ),
 					(string) $theme_slug,
 					(string) $new_version,
 					$url

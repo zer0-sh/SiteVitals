@@ -2,14 +2,14 @@
 /**
  * Check de cabeceras de seguridad del sitio.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
+use SiteVitals\Result;
 
 /**
  * Comprueba la presencia de las cabeceras de seguridad básicas de la portada
@@ -93,7 +93,7 @@ final class SecurityHeadersCheck extends AbstractCheck implements MultiCheckInte
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'Security headers', 'wpvitals' );
+		return __( 'Security headers', 'sitevitals' );
 	}
 
 	/**
@@ -111,7 +111,7 @@ final class SecurityHeadersCheck extends AbstractCheck implements MultiCheckInte
 				return $this->result(
 					Result::SEVERITY_ERROR,
 					$results,
-					__( 'Could not fetch the site headers; check the HTTP request.', 'wpvitals' ),
+					__( 'Could not fetch the site headers; check the HTTP request.', 'sitevitals' ),
 					0
 				);
 			}
@@ -130,7 +130,7 @@ final class SecurityHeadersCheck extends AbstractCheck implements MultiCheckInte
 			$results,
 			sprintf(
 				/* translators: %d: number of missing headers. */
-				__( '%d security headers missing on the public homepage.', 'wpvitals' ),
+				__( '%d security headers missing on the public homepage.', 'sitevitals' ),
 				$missing
 			),
 			self::HEADER_ISSUE_POINTS * $missing
@@ -152,7 +152,7 @@ final class SecurityHeadersCheck extends AbstractCheck implements MultiCheckInte
 					$this->get_title(),
 					Result::SEVERITY_ERROR,
 					null,
-					__( 'Could not fetch the site headers; check the HTTP request.', 'wpvitals' ),
+					__( 'Could not fetch the site headers; check the HTTP request.', 'sitevitals' ),
 					0
 				),
 			);
@@ -194,28 +194,28 @@ final class SecurityHeadersCheck extends AbstractCheck implements MultiCheckInte
 	private static function headers_meta(): array {
 		return array(
 			'x-content-type-options'    => array(
-				'title'          => __( 'X-Content-Type-Options header', 'wpvitals' ),
-				'recommendation' => __( 'X-Content-Type-Options: nosniff is missing; add it to prevent browser MIME sniffing.', 'wpvitals' ),
+				'title'          => __( 'X-Content-Type-Options header', 'sitevitals' ),
+				'recommendation' => __( 'X-Content-Type-Options: nosniff is missing; add it to prevent browser MIME sniffing.', 'sitevitals' ),
 			),
 			'x-frame-options'           => array(
-				'title'          => __( 'X-Frame-Options header', 'wpvitals' ),
-				'recommendation' => __( 'X-Frame-Options is missing (and no frame-ancestors in the CSP); it prevents clickjacking of your site.', 'wpvitals' ),
+				'title'          => __( 'X-Frame-Options header', 'sitevitals' ),
+				'recommendation' => __( 'X-Frame-Options is missing (and no frame-ancestors in the CSP); it prevents clickjacking of your site.', 'sitevitals' ),
 			),
 			'content-security-policy'   => array(
-				'title'          => __( 'Content-Security-Policy header', 'wpvitals' ),
-				'recommendation' => __( 'Content-Security-Policy is missing; define a policy that limits allowed origins and resources.', 'wpvitals' ),
+				'title'          => __( 'Content-Security-Policy header', 'sitevitals' ),
+				'recommendation' => __( 'Content-Security-Policy is missing; define a policy that limits allowed origins and resources.', 'sitevitals' ),
 			),
 			'referrer-policy'           => array(
-				'title'          => __( 'Referrer-Policy header', 'wpvitals' ),
-				'recommendation' => __( 'Referrer-Policy is missing; configure how much referrer information is shared with other sites.', 'wpvitals' ),
+				'title'          => __( 'Referrer-Policy header', 'sitevitals' ),
+				'recommendation' => __( 'Referrer-Policy is missing; configure how much referrer information is shared with other sites.', 'sitevitals' ),
 			),
 			'permissions-policy'        => array(
-				'title'          => __( 'Permissions-Policy header', 'wpvitals' ),
-				'recommendation' => __( 'Permissions-Policy is missing; restrict the browser APIs (camera, microphone, geolocation…) available on your pages.', 'wpvitals' ),
+				'title'          => __( 'Permissions-Policy header', 'sitevitals' ),
+				'recommendation' => __( 'Permissions-Policy is missing; restrict the browser APIs (camera, microphone, geolocation…) available on your pages.', 'sitevitals' ),
 			),
 			'strict-transport-security' => array(
-				'title'          => __( 'Strict-Transport-Security header', 'wpvitals' ),
-				'recommendation' => __( 'Strict-Transport-Security is missing; over HTTPS it forces secure connections and prevents downgrade attacks.', 'wpvitals' ),
+				'title'          => __( 'Strict-Transport-Security header', 'sitevitals' ),
+				'recommendation' => __( 'Strict-Transport-Security is missing; over HTTPS it forces secure connections and prevents downgrade attacks.', 'sitevitals' ),
 			),
 		);
 	}

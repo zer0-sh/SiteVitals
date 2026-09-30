@@ -1,11 +1,11 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests\Checks;
+namespace SiteVitals\Tests\Checks;
 
-use WPVitals\Checks\AbstractCheck;
-use WPVitals\Checks\MultiCheckInterface;
-use WPVitals\Result;
+use SiteVitals\Checks\AbstractCheck;
+use SiteVitals\Checks\MultiCheckInterface;
+use SiteVitals\Result;
 
 final class MultiOkCheck extends AbstractCheck implements MultiCheckInterface {
 

@@ -1,13 +1,13 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\MailReport;
-use WPVitals\Result;
-use WPVitals\ScanOutcome;
-use WPVitals\Settings;
+use SiteVitals\MailReport;
+use SiteVitals\Result;
+use SiteVitals\ScanOutcome;
+use SiteVitals\Settings;
 
 final class MailReportTest extends TestCase {
 
@@ -101,7 +101,7 @@ final class MailReportTest extends TestCase {
 
 		$this->assertTrue( $result );
 		$this->assertSame( 'ops@example.com', $sent['to'] );
-		$this->assertStringContainsString( 'WPVitals', $sent['subject'] );
+		$this->assertStringContainsString( 'SiteVitals', $sent['subject'] );
 		$this->assertStringContainsString( '80/100', $sent['body'] );
 	}
 

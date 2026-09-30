@@ -1,11 +1,11 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Settings;
-use WPVitals\SettingsStore;
+use SiteVitals\Settings;
+use SiteVitals\SettingsStore;
 
 final class SettingsStoreTest extends TestCase {
 

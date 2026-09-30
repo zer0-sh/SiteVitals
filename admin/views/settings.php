@@ -1,8 +1,8 @@
 <?php
 /**
- * Vista de ajustes de WPVitals.
+ * Vista de ajustes de SiteVitals.
  *
- * @package WPVitals
+ * @package SiteVitals
  *
  * @var array $data Datos preparados por AdminPage::render_settings().
  */
@@ -11,14 +11,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$wpvitals_settings = $data['settings'];
+$sitevitals_settings = $data['settings'];
 ?>
-<div class="wrap wpvitals-wrap">
-	<h1><?php esc_html_e( 'WPVitals Settings', 'wpvitals' ); ?></h1>
+<div class="wrap sitevitals-wrap">
+	<h1><?php esc_html_e( 'SiteVitals Settings', 'sitevitals' ); ?></h1>
 
 	<?php if ( 'updated' === $data['notice'] ) : ?>
 		<div class="notice notice-success is-dismissible inline">
-			<p><?php esc_html_e( 'Settings saved successfully.', 'wpvitals' ); ?></p>
+			<p><?php esc_html_e( 'Settings saved successfully.', 'sitevitals' ); ?></p>
 		</div>
 	<?php endif; ?>
 
@@ -26,70 +26,70 @@ $wpvitals_settings = $data['settings'];
 		<table class="form-table" role="presentation">
 			<tr>
 				<th scope="row">
-					<label for="wpvitals-frequency"><?php esc_html_e( 'Scan frequency', 'wpvitals' ); ?></label>
+					<label for="sitevitals-frequency"><?php esc_html_e( 'Scan frequency', 'sitevitals' ); ?></label>
 				</th>
 				<td>
-					<select name="wpvitals[frequency]" id="wpvitals-frequency">
+					<select name="sitevitals[frequency]" id="sitevitals-frequency">
 						<?php
-						$wpvitals_frequencies = array(
-							'disabled' => __( 'Disabled', 'wpvitals' ),
-							'daily'    => __( 'Daily', 'wpvitals' ),
-							'weekly'   => __( 'Weekly', 'wpvitals' ),
-							'monthly'  => __( 'Monthly', 'wpvitals' ),
+						$sitevitals_frequencies = array(
+							'disabled' => __( 'Disabled', 'sitevitals' ),
+							'daily'    => __( 'Daily', 'sitevitals' ),
+							'weekly'   => __( 'Weekly', 'sitevitals' ),
+							'monthly'  => __( 'Monthly', 'sitevitals' ),
 						);
 
-						foreach ( $wpvitals_frequencies as $wpvitals_value => $wpvitals_label ) :
+						foreach ( $sitevitals_frequencies as $sitevitals_value => $sitevitals_label ) :
 							?>
-							<option value="<?php echo esc_attr( $wpvitals_value ); ?>" <?php selected( $wpvitals_settings->get_frequency(), $wpvitals_value ); ?>>
-								<?php echo esc_html( $wpvitals_label ); ?>
+							<option value="<?php echo esc_attr( $sitevitals_value ); ?>" <?php selected( $sitevitals_settings->get_frequency(), $sitevitals_value ); ?>>
+								<?php echo esc_html( $sitevitals_label ); ?>
 							</option>
 						<?php endforeach; ?>
 					</select>
 					<p class="description">
-						<?php esc_html_e( 'How often the site status is checked automatically.', 'wpvitals' ); ?>
+						<?php esc_html_e( 'How often the site status is checked automatically.', 'sitevitals' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
 				<th scope="row">
-					<label for="wpvitals-mail-enabled"><?php esc_html_e( 'Email reports', 'wpvitals' ); ?></label>
+					<label for="sitevitals-mail-enabled"><?php esc_html_e( 'Email reports', 'sitevitals' ); ?></label>
 				</th>
 				<td>
-					<label for="wpvitals-mail-enabled">
+					<label for="sitevitals-mail-enabled">
 						<input
 							type="checkbox"
-							name="wpvitals[mail_enabled]"
-							id="wpvitals-mail-enabled"
+							name="sitevitals[mail_enabled]"
+							id="sitevitals-mail-enabled"
 							value="1"
-							<?php checked( $wpvitals_settings->is_mail_enabled(), true ); ?>
+							<?php checked( $sitevitals_settings->is_mail_enabled(), true ); ?>
 						/>
-						<?php esc_html_e( 'Send results by email', 'wpvitals' ); ?>
+						<?php esc_html_e( 'Send results by email', 'sitevitals' ); ?>
 					</label>
 					<p class="description">
-						<?php esc_html_e( 'After each manual scan and when the diagnosis changes in scheduled ones.', 'wpvitals' ); ?>
+						<?php esc_html_e( 'After each manual scan and when the diagnosis changes in scheduled ones.', 'sitevitals' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
 				<th scope="row">
-					<label for="wpvitals-recipient"><?php esc_html_e( 'Recipient', 'wpvitals' ); ?></label>
+					<label for="sitevitals-recipient"><?php esc_html_e( 'Recipient', 'sitevitals' ); ?></label>
 				</th>
 				<td>
 					<input
 						type="email"
-						name="wpvitals[recipient]"
-						id="wpvitals-recipient"
+						name="sitevitals[recipient]"
+						id="sitevitals-recipient"
 						class="regular-text"
-						value="<?php echo esc_attr( $wpvitals_settings->get_recipient() ); ?>"
+						value="<?php echo esc_attr( $sitevitals_settings->get_recipient() ); ?>"
 						placeholder="<?php echo esc_attr( (string) get_option( 'admin_email', '' ) ); ?>"
 					/>
 					<p class="description">
 						<?php
 						printf(
 							/* translators: %s: default administrator email. */
-							esc_html__( 'Leave empty to use the administrator email («%s»).', 'wpvitals' ),
+							esc_html__( 'Leave empty to use the administrator email («%s»).', 'sitevitals' ),
 							esc_html( (string) get_option( 'admin_email', '' ) )
 						);
 						?>
@@ -98,48 +98,48 @@ $wpvitals_settings = $data['settings'];
 			</tr>
 		<tr>
 				<th scope="row">
-					<label for="wpvitals-time-24h"><?php esc_html_e( 'Time format', 'wpvitals' ); ?></label>
+					<label for="sitevitals-time-24h"><?php esc_html_e( 'Time format', 'sitevitals' ); ?></label>
 				</th>
 				<td>
-					<label for="wpvitals-time-24h">
+					<label for="sitevitals-time-24h">
 						<input
 							type="checkbox"
-							name="wpvitals[time_24h]"
-							id="wpvitals-time-24h"
+							name="sitevitals[time_24h]"
+							id="sitevitals-time-24h"
 							value="1"
-							<?php checked( $wpvitals_settings->is_time_24h(), true ); ?>
+							<?php checked( $sitevitals_settings->is_time_24h(), true ); ?>
 						/>
-						<?php esc_html_e( 'Use 24-hour format', 'wpvitals' ); ?>
+						<?php esc_html_e( 'Use 24-hour format', 'sitevitals' ); ?>
 					</label>
 					<p class="description">
-						<?php esc_html_e( 'Shows scan and scheduling times in 24-hour format.', 'wpvitals' ); ?>
+						<?php esc_html_e( 'Shows scan and scheduling times in 24-hour format.', 'sitevitals' ); ?>
 					</p>
 				</td>
 			</tr>
 		</table>
 
-		<?php wp_nonce_field( 'wpvitals_settings' ); ?>
-		<input type="hidden" name="action" value="wpvitals_settings" />
-		<?php submit_button( __( 'Save settings', 'wpvitals' ), 'primary', 'submit', false ); ?>
+		<?php wp_nonce_field( 'sitevitals_settings' ); ?>
+		<input type="hidden" name="action" value="sitevitals_settings" />
+		<?php submit_button( __( 'Save settings', 'sitevitals' ), 'primary', 'submit', false ); ?>
 	</form>
 
-	<?php $wpvitals_time_format = $wpvitals_settings->is_time_24h() ? 'H:i' : (string) get_option( 'time_format' ); ?>
+	<?php $sitevitals_time_format = $sitevitals_settings->is_time_24h() ? 'H:i' : (string) get_option( 'time_format' ); ?>
 
 	<p>
 		<strong>
 			<?php
 			printf(
 				/* translators: 1: configured frequency, 2: date of the next run. */
-				esc_html__( 'Scheduled scan: %1$s. Next run: %2$s.', 'wpvitals' ),
-				esc_html( $wpvitals_frequencies[ $wpvitals_settings->get_frequency() ] ),
+				esc_html__( 'Scheduled scan: %1$s. Next run: %2$s.', 'sitevitals' ),
+				esc_html( $sitevitals_frequencies[ $sitevitals_settings->get_frequency() ] ),
 				null !== $data['next_run']
 					? esc_html(
 						date_i18n(
-							get_option( 'date_format' ) . ' ' . $wpvitals_time_format,
+							get_option( 'date_format' ) . ' ' . $sitevitals_time_format,
 							$data['next_run']
 						)
 					)
-					: esc_html__( 'not scheduled', 'wpvitals' )
+					: esc_html__( 'not scheduled', 'sitevitals' )
 			);
 			?>
 		</strong>

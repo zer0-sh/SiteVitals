@@ -1,130 +1,130 @@
 <?php
 /**
- * Tabla de hallazgos del panel de WPVitals.
+ * Tabla de hallazgos del panel de SiteVitals.
  *
  * Vista parcial reutilizada por el dashboard para cada categoría y para
  * los hallazgos ignorados; todas las tablas se renderizan igual.
  *
- * @package WPVitals
+ * @package SiteVitals
  *
- * @var array $wpvitals_findings Filas con el formato de DashboardData::finding().
- * @var bool  $wpvitals_restore   true si las filas ya están ignoradas (acción "Restaurar").
+ * @var array $sitevitals_findings Filas con el formato de DashboardData::finding().
+ * @var bool  $sitevitals_restore   true si las filas ya están ignoradas (acción "Restaurar").
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$wpvitals_restore = isset( $wpvitals_restore ) ? (bool) $wpvitals_restore : false;
+$sitevitals_restore = isset( $sitevitals_restore ) ? (bool) $sitevitals_restore : false;
 ?>
-<table class="wpvitals-table">
+<table class="sitevitals-table">
 	<thead>
 		<tr>
-			<th scope="col"><?php esc_html_e( 'Finding', 'wpvitals' ); ?></th>
-			<th scope="col"><?php esc_html_e( 'Description', 'wpvitals' ); ?></th>
-			<th scope="col"><?php esc_html_e( 'Severity', 'wpvitals' ); ?></th>
-			<th scope="col"><?php esc_html_e( 'Action', 'wpvitals' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Finding', 'sitevitals' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Description', 'sitevitals' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Severity', 'sitevitals' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Action', 'sitevitals' ); ?></th>
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach ( $wpvitals_findings as $wpvitals_finding ) : ?>
+		<?php foreach ( $sitevitals_findings as $sitevitals_finding ) : ?>
 			<?php
-			$wpvitals_points_tip = $wpvitals_finding['points'] > 0
+			$sitevitals_points_tip = $sitevitals_finding['points'] > 0
 				? sprintf(
 					/* translators: %d: points deducted from the Health Score. */
-					__( '-%d points', 'wpvitals' ),
-					$wpvitals_finding['points']
+					__( '-%d points', 'sitevitals' ),
+					$sitevitals_finding['points']
 				)
 				: '';
-			$wpvitals_is_group = isset( $wpvitals_finding['vulnerabilities'] ) && is_array( $wpvitals_finding['vulnerabilities'] );
+			$sitevitals_is_group = isset( $sitevitals_finding['vulnerabilities'] ) && is_array( $sitevitals_finding['vulnerabilities'] );
 			?>
 			<tr>
-				<td class="wpvitals-finding-cell">
-					<span class="wpvitals-finding-title"><?php echo esc_html( $wpvitals_finding['title'] ); ?></span>
-					<span class="wpvitals-info-icon" title="<?php echo esc_attr( $wpvitals_finding['description'] ); ?>">i</span>
+				<td class="sitevitals-finding-cell">
+					<span class="sitevitals-finding-title"><?php echo esc_html( $sitevitals_finding['title'] ); ?></span>
+					<span class="sitevitals-info-icon" title="<?php echo esc_attr( $sitevitals_finding['description'] ); ?>">i</span>
 					<br />
-					<span class="wpvitals-finding-id"><?php echo esc_html( $wpvitals_finding['id'] ); ?></span>
-					<?php if ( '' !== $wpvitals_finding['value'] ) : ?>
+					<span class="sitevitals-finding-id"><?php echo esc_html( $sitevitals_finding['id'] ); ?></span>
+					<?php if ( '' !== $sitevitals_finding['value'] ) : ?>
 						<br />
-						<span class="wpvitals-finding-value"><?php echo esc_html( $wpvitals_finding['value'] ); ?></span>
+						<span class="sitevitals-finding-value"><?php echo esc_html( $sitevitals_finding['value'] ); ?></span>
 					<?php endif; ?>
 				</td>
-				<td><?php echo esc_html( $wpvitals_finding['recommendation'] ); ?></td>
+				<td><?php echo esc_html( $sitevitals_finding['recommendation'] ); ?></td>
 				<td>
-					<span class="wpvitals-severity wpvitals-severity-<?php echo esc_attr( $wpvitals_finding['severity'] ); ?>"
-						<?php if ( '' !== $wpvitals_points_tip ) : ?>
-							title="<?php echo esc_attr( $wpvitals_points_tip ); ?>"
+					<span class="sitevitals-severity sitevitals-severity-<?php echo esc_attr( $sitevitals_finding['severity'] ); ?>"
+						<?php if ( '' !== $sitevitals_points_tip ) : ?>
+							title="<?php echo esc_attr( $sitevitals_points_tip ); ?>"
 						<?php endif; ?>
-					><?php echo esc_html( $wpvitals_finding['severity_label'] ); ?></span>
+					><?php echo esc_html( $sitevitals_finding['severity_label'] ); ?></span>
 				</td>
-				<td class="wpvitals-action-col">
-					<?php if ( $wpvitals_restore ) : ?>
-						<a class="wpvitals-ignore-link" href="<?php echo esc_url( \WPVitals\Admin\AdminPage::toggle_ignored_url( \WPVitals\Admin\AdminPage::UNIGNORE_ACTION, $wpvitals_finding['id'] ) ); ?>">
-							<?php esc_html_e( 'Restore', 'wpvitals' ); ?>
+				<td class="sitevitals-action-col">
+					<?php if ( $sitevitals_restore ) : ?>
+						<a class="sitevitals-ignore-link" href="<?php echo esc_url( \SiteVitals\Admin\AdminPage::toggle_ignored_url( \SiteVitals\Admin\AdminPage::UNIGNORE_ACTION, $sitevitals_finding['id'] ) ); ?>">
+							<?php esc_html_e( 'Restore', 'sitevitals' ); ?>
 						</a>
 					<?php else : ?>
-						<?php if ( '' !== $wpvitals_finding['link'] ) : ?>
-							<a class="wpvitals-action-link" href="<?php echo esc_url( $wpvitals_finding['link'] ); ?>" target="_blank" rel="noreferrer noopener">
-								<?php esc_html_e( 'View source', 'wpvitals' ); ?>
+						<?php if ( '' !== $sitevitals_finding['link'] ) : ?>
+							<a class="sitevitals-action-link" href="<?php echo esc_url( $sitevitals_finding['link'] ); ?>" target="_blank" rel="noreferrer noopener">
+								<?php esc_html_e( 'View source', 'sitevitals' ); ?>
 							</a>
-						<?php elseif ( null !== $wpvitals_finding['screen'] ) : ?>
-							<a class="wpvitals-action-link" href="<?php echo esc_url( \WPVitals\Admin\AdminPage::screen_url( $wpvitals_finding['screen'] ) ); ?>">
-								<?php echo esc_html( \WPVitals\Admin\AdminPage::screen_label( $wpvitals_finding['screen'] ) ); ?>
+						<?php elseif ( null !== $sitevitals_finding['screen'] ) : ?>
+							<a class="sitevitals-action-link" href="<?php echo esc_url( \SiteVitals\Admin\AdminPage::screen_url( $sitevitals_finding['screen'] ) ); ?>">
+								<?php echo esc_html( \SiteVitals\Admin\AdminPage::screen_label( $sitevitals_finding['screen'] ) ); ?>
 							</a>
-						<?php elseif ( ! $wpvitals_finding['is_ok'] ) : ?>
-							<span class="wpvitals-action-disabled"><?php esc_html_e( 'No action available', 'wpvitals' ); ?></span>
+						<?php elseif ( ! $sitevitals_finding['is_ok'] ) : ?>
+							<span class="sitevitals-action-disabled"><?php esc_html_e( 'No action available', 'sitevitals' ); ?></span>
 						<?php endif; ?>
-						<?php if ( ! $wpvitals_finding['is_ok'] && ! $wpvitals_is_group ) : ?>
+						<?php if ( ! $sitevitals_finding['is_ok'] && ! $sitevitals_is_group ) : ?>
 							<br />
-							<a class="wpvitals-ignore-link" href="<?php echo esc_url( \WPVitals\Admin\AdminPage::toggle_ignored_url( \WPVitals\Admin\AdminPage::IGNORE_ACTION, $wpvitals_finding['id'] ) ); ?>">
-								<?php esc_html_e( 'Ignore', 'wpvitals' ); ?>
+							<a class="sitevitals-ignore-link" href="<?php echo esc_url( \SiteVitals\Admin\AdminPage::toggle_ignored_url( \SiteVitals\Admin\AdminPage::IGNORE_ACTION, $sitevitals_finding['id'] ) ); ?>">
+								<?php esc_html_e( 'Ignore', 'sitevitals' ); ?>
 							</a>
 						<?php endif; ?>
 					<?php endif; ?>
 				</td>
 			</tr>
-			<?php if ( $wpvitals_is_group ) : ?>
-				<tr class="wpvitals-sub-row">
+			<?php if ( $sitevitals_is_group ) : ?>
+				<tr class="sitevitals-sub-row">
 					<td colspan="4">
-						<details class="wpvitals-sub-list">
-							<summary><?php esc_html_e( 'Click for details', 'wpvitals' ); ?></summary>
-							<ul class="wpvitals-sub-list-items">
-								<?php foreach ( $wpvitals_finding['vulnerabilities'] as $wpvitals_child ) : ?>
+						<details class="sitevitals-sub-list">
+							<summary><?php esc_html_e( 'Click for details', 'sitevitals' ); ?></summary>
+							<ul class="sitevitals-sub-list-items">
+								<?php foreach ( $sitevitals_finding['vulnerabilities'] as $sitevitals_child ) : ?>
 									<?php
-									$wpvitals_child_points_tip = $wpvitals_child['points'] > 0
+									$sitevitals_child_points_tip = $sitevitals_child['points'] > 0
 										? sprintf(
 											/* translators: %d: points deducted from the Health Score. */
-											__( '-%d points', 'wpvitals' ),
-											$wpvitals_child['points']
+											__( '-%d points', 'sitevitals' ),
+											$sitevitals_child['points']
 										)
 										: '';
 									?>
 									<li>
-										<span class="wpvitals-sub-body">
-											<span class="wpvitals-sub-severity wpvitals-severity wpvitals-severity-<?php echo esc_attr( $wpvitals_child['severity'] ); ?>"
-												<?php if ( '' !== $wpvitals_child_points_tip ) : ?>
-													title="<?php echo esc_attr( $wpvitals_child_points_tip ); ?>"
+										<span class="sitevitals-sub-body">
+											<span class="sitevitals-sub-severity sitevitals-severity sitevitals-severity-<?php echo esc_attr( $sitevitals_child['severity'] ); ?>"
+												<?php if ( '' !== $sitevitals_child_points_tip ) : ?>
+													title="<?php echo esc_attr( $sitevitals_child_points_tip ); ?>"
 												<?php endif; ?>
-											><?php echo esc_html( $wpvitals_child['severity_label'] ); ?></span>
-											<span class="wpvitals-sub-title"><?php echo esc_html( $wpvitals_child['title'] ); ?></span>
-											<span class="wpvitals-info-icon" title="<?php echo esc_attr( $wpvitals_child['description'] ); ?>">i</span>
+											><?php echo esc_html( $sitevitals_child['severity_label'] ); ?></span>
+											<span class="sitevitals-sub-title"><?php echo esc_html( $sitevitals_child['title'] ); ?></span>
+											<span class="sitevitals-info-icon" title="<?php echo esc_attr( $sitevitals_child['description'] ); ?>">i</span>
 											<br />
-											<span class="wpvitals-sub-id"><?php echo esc_html( $wpvitals_child['id'] ); ?></span>
-											<span class="wpvitals-sub-meta"><?php echo esc_html( $wpvitals_child['recommendation'] ); ?></span>
+											<span class="sitevitals-sub-id"><?php echo esc_html( $sitevitals_child['id'] ); ?></span>
+											<span class="sitevitals-sub-meta"><?php echo esc_html( $sitevitals_child['recommendation'] ); ?></span>
 										</span>
-										<span class="wpvitals-sub-actions">
-											<?php if ( '' !== $wpvitals_child['link'] ) : ?>
-												<a class="wpvitals-action-link" href="<?php echo esc_url( $wpvitals_child['link'] ); ?>" target="_blank" rel="noreferrer noopener">
-													<?php esc_html_e( 'View source', 'wpvitals' ); ?>
+										<span class="sitevitals-sub-actions">
+											<?php if ( '' !== $sitevitals_child['link'] ) : ?>
+												<a class="sitevitals-action-link" href="<?php echo esc_url( $sitevitals_child['link'] ); ?>" target="_blank" rel="noreferrer noopener">
+													<?php esc_html_e( 'View source', 'sitevitals' ); ?>
 												</a>
 											<?php endif; ?>
-											<?php if ( $wpvitals_restore ) : ?>
-												<a class="wpvitals-ignore-link" href="<?php echo esc_url( \WPVitals\Admin\AdminPage::toggle_ignored_url( \WPVitals\Admin\AdminPage::UNIGNORE_ACTION, $wpvitals_child['id'] ) ); ?>">
-													<?php esc_html_e( 'Restore', 'wpvitals' ); ?>
+											<?php if ( $sitevitals_restore ) : ?>
+												<a class="sitevitals-ignore-link" href="<?php echo esc_url( \SiteVitals\Admin\AdminPage::toggle_ignored_url( \SiteVitals\Admin\AdminPage::UNIGNORE_ACTION, $sitevitals_child['id'] ) ); ?>">
+													<?php esc_html_e( 'Restore', 'sitevitals' ); ?>
 												</a>
-											<?php elseif ( ! $wpvitals_child['is_ok'] ) : ?>
-												<a class="wpvitals-ignore-link" href="<?php echo esc_url( \WPVitals\Admin\AdminPage::toggle_ignored_url( \WPVitals\Admin\AdminPage::IGNORE_ACTION, $wpvitals_child['id'] ) ); ?>">
-													<?php esc_html_e( 'Ignore', 'wpvitals' ); ?>
+											<?php elseif ( ! $sitevitals_child['is_ok'] ) : ?>
+												<a class="sitevitals-ignore-link" href="<?php echo esc_url( \SiteVitals\Admin\AdminPage::toggle_ignored_url( \SiteVitals\Admin\AdminPage::IGNORE_ACTION, $sitevitals_child['id'] ) ); ?>">
+													<?php esc_html_e( 'Ignore', 'sitevitals' ); ?>
 												</a>
 											<?php endif; ?>
 										</span>

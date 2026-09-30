@@ -2,15 +2,15 @@
 /**
  * Check del memory_limit de PHP.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Revisa el límite de memoria de PHP frente al mínimo recomendado por
@@ -49,7 +49,7 @@ final class PhpMemoryCheck extends AbstractCheck {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'PHP memory limit', 'wpvitals' );
+		return __( 'PHP memory limit', 'sitevitals' );
 	}
 
 	/**
@@ -63,7 +63,7 @@ final class PhpMemoryCheck extends AbstractCheck {
 			return $this->result(
 				Result::SEVERITY_OK,
 				$limit,
-				__( 'memory_limit is set without a limit (unlimited).', 'wpvitals' )
+				__( 'memory_limit is set without a limit (unlimited).', 'sitevitals' )
 			);
 		}
 
@@ -76,7 +76,7 @@ final class PhpMemoryCheck extends AbstractCheck {
 			$limit,
 			sprintf(
 				/* translators: 1: current limit, 2: recommended limit. */
-				__( 'memory_limit is at %1$s; WordPress recommends at least %2$s. Increase the limit in php.ini.', 'wpvitals' ),
+				__( 'memory_limit is at %1$s; WordPress recommends at least %2$s. Increase the limit in php.ini.', 'sitevitals' ),
 				$limit,
 				self::MIN_RECOMMENDED
 			),

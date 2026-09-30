@@ -2,15 +2,15 @@
 /**
  * Check de la versión de WordPress instalada vs. la estable disponible.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Compara la versión de WordPress instalada con la estable disponible y
@@ -90,7 +90,7 @@ final class WordPressVersionCheck extends AbstractCheck {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'WordPress version', 'wpvitals' );
+		return __( 'WordPress version', 'sitevitals' );
 	}
 
 	/**
@@ -109,7 +109,7 @@ final class WordPressVersionCheck extends AbstractCheck {
 					'available'        => null,
 					'auto_update_mode' => $mode,
 				),
-				__( 'Could not fetch the available stable WordPress version; check the site update cache.', 'wpvitals' )
+				__( 'Could not fetch the available stable WordPress version; check the site update cache.', 'sitevitals' )
 			);
 		}
 
@@ -126,7 +126,7 @@ final class WordPressVersionCheck extends AbstractCheck {
 				return $this->result(
 					Result::SEVERITY_INFO,
 					$value,
-					__( 'WordPress is up to date, but automatic updates are disabled; enable them to receive security patches.', 'wpvitals' )
+					__( 'WordPress is up to date, but automatic updates are disabled; enable them to receive security patches.', 'sitevitals' )
 				);
 			}
 
@@ -139,7 +139,7 @@ final class WordPressVersionCheck extends AbstractCheck {
 				$value,
 				sprintf(
 					/* translators: 1: installed version, 2: available stable version. */
-					__( 'A WordPress update is pending (installed %1$s, available %2$s). Run the update from the admin.', 'wpvitals' ),
+					__( 'A WordPress update is pending (installed %1$s, available %2$s). Run the update from the admin.', 'sitevitals' ),
 					$installed,
 					$available['current']
 				),
@@ -152,7 +152,7 @@ final class WordPressVersionCheck extends AbstractCheck {
 			$value,
 			sprintf(
 				/* translators: 1: installed version, 2: available stable version. */
-				__( 'WordPress %1$s is outdated and automatic updates are disabled; update to %2$s and enable auto-updates.', 'wpvitals' ),
+				__( 'WordPress %1$s is outdated and automatic updates are disabled; update to %2$s and enable auto-updates.', 'sitevitals' ),
 				$installed,
 				$available['current']
 			),

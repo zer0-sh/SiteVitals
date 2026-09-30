@@ -1,12 +1,12 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Result;
-use WPVitals\ScanOutcome;
-use WPVitals\ScanStore;
+use SiteVitals\Result;
+use SiteVitals\ScanOutcome;
+use SiteVitals\ScanStore;
 
 final class ScanStoreTest extends TestCase {
 

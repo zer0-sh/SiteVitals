@@ -2,12 +2,12 @@
 /**
  * Registro de todos los checks locales implementados.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
 /**
  * Enumeración de los checks locales del plugin.

@@ -2,12 +2,12 @@
 /**
  * Health Score del sitio.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals;
+namespace SiteVitals;
 
 /**
  * Puntuación de salud calculada a partir de los resultados de un escaneo.

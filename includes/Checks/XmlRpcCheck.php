@@ -2,15 +2,15 @@
 /**
  * Check de XML-RPC.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Comprueba si XML-RPC está habilitado o expuesto, ya que se usa en
@@ -47,7 +47,7 @@ final class XmlRpcCheck extends AbstractCheck {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'XML-RPC', 'wpvitals' );
+		return __( 'XML-RPC', 'sitevitals' );
 	}
 
 	/**
@@ -63,7 +63,7 @@ final class XmlRpcCheck extends AbstractCheck {
 		return $this->result(
 			Result::SEVERITY_WARNING,
 			$enabled,
-			__( 'XML-RPC is enabled and used in brute-force attacks. Disable it by returning false from the xmlrpc_enabled filter or blocking xmlrpc.php.', 'wpvitals' ),
+			__( 'XML-RPC is enabled and used in brute-force attacks. Disable it by returning false from the xmlrpc_enabled filter or blocking xmlrpc.php.', 'sitevitals' ),
 			ScoreDiscounts::MINOR
 		);
 	}

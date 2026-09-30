@@ -1,18 +1,18 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Checker;
-use WPVitals\Result;
-use WPVitals\ScanOutcome;
-use WPVitals\Scanner;
-use WPVitals\ScoreDiscounts;
-use WPVitals\Tests\Checks\MultiOkCheck;
-use WPVitals\Tests\Checks\OkCheck;
-use WPVitals\Vulnerability;
-use WPVitals\VulnerabilityClient;
+use SiteVitals\Checker;
+use SiteVitals\Result;
+use SiteVitals\ScanOutcome;
+use SiteVitals\Scanner;
+use SiteVitals\ScoreDiscounts;
+use SiteVitals\Tests\Checks\MultiOkCheck;
+use SiteVitals\Tests\Checks\OkCheck;
+use SiteVitals\Vulnerability;
+use SiteVitals\VulnerabilityClient;
 
 final class ScannerTest extends TestCase {
 

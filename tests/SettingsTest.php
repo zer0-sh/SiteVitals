@@ -1,10 +1,10 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Settings;
+use SiteVitals\Settings;
 
 final class SettingsTest extends TestCase {
 
@@ -153,8 +153,8 @@ final class SettingsTest extends TestCase {
 
 	public function test_get_recurrence_segun_frecuencia(): void {
 		$this->assertSame( 'daily', ( new Settings( Settings::FREQUENCY_DAILY, true, '' ) )->get_recurrence() );
-		$this->assertSame( 'wpvitals_weekly', ( new Settings( Settings::FREQUENCY_WEEKLY, true, '' ) )->get_recurrence() );
-		$this->assertSame( 'wpvitals_monthly', ( new Settings( Settings::FREQUENCY_MONTHLY, true, '' ) )->get_recurrence() );
+		$this->assertSame( 'sitevitals_weekly', ( new Settings( Settings::FREQUENCY_WEEKLY, true, '' ) )->get_recurrence() );
+		$this->assertSame( 'sitevitals_monthly', ( new Settings( Settings::FREQUENCY_MONTHLY, true, '' ) )->get_recurrence() );
 		$this->assertSame( '', ( new Settings( Settings::FREQUENCY_DISABLED, true, '' ) )->get_recurrence() );
 	}
 

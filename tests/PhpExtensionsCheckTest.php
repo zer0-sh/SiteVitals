@@ -1,11 +1,11 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Checks\PhpExtensionsCheck;
-use WPVitals\Result;
+use SiteVitals\Checks\PhpExtensionsCheck;
+use SiteVitals\Result;
 
 final class PhpExtensionsCheckTest extends TestCase {
 

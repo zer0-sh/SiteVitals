@@ -2,15 +2,15 @@
 /**
  * Check de display_errors de PHP.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals\Checks;
+namespace SiteVitals\Checks;
 
-use WPVitals\Result;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Result;
+use SiteVitals\ScoreDiscounts;
 
 /**
  * Revisa si display_errors está activado, algo inseguro en producción.
@@ -46,7 +46,7 @@ final class PhpDisplayErrorsCheck extends AbstractCheck {
 	 * {@inheritDoc}
 	 */
 	public function get_title(): string {
-		return __( 'PHP error display', 'wpvitals' );
+		return __( 'PHP error display', 'sitevitals' );
 	}
 
 	/**
@@ -62,7 +62,7 @@ final class PhpDisplayErrorsCheck extends AbstractCheck {
 		return $this->result(
 			Result::SEVERITY_WARNING,
 			$enabled,
-			__( 'display_errors is enabled and shows PHP errors to visitors. Disable it in production with display_errors = Off.', 'wpvitals' ),
+			__( 'display_errors is enabled and shows PHP errors to visitors. Disable it in production with display_errors = Off.', 'sitevitals' ),
 			ScoreDiscounts::MINOR
 		);
 	}

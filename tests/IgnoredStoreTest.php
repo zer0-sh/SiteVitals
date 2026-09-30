@@ -1,10 +1,10 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\IgnoredStore;
+use SiteVitals\IgnoredStore;
 
 final class IgnoredStoreTest extends TestCase {
 

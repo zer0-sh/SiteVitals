@@ -1,12 +1,12 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Checker;
-use WPVitals\Checks\LocalChecks;
-use WPVitals\ScoreDiscounts;
+use SiteVitals\Checker;
+use SiteVitals\Checks\LocalChecks;
+use SiteVitals\ScoreDiscounts;
 
 final class LocalChecksTest extends TestCase {
 

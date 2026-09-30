@@ -1,12 +1,12 @@
 {
-	"name": "zer0-sh/wpvitals",
+	"name": "zer0-sh/sitevitals",
 	"description": "Ultra lightweight WordPress plugin to monitor your website's performance, health, and security.",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
-			"name": "WPVitals",
-			"homepage": "https://github.com/zer0-sh/wpvitals"
+			"name": "SiteVitals",
+			"homepage": "https://github.com/zer0-sh/sitevitals"
 		}
 	],
 	"require": {
@@ -20,13 +20,13 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"WPVitals\\Admin\\": "admin/",
-			"WPVitals\\": "includes/"
+			"SiteVitals\\Admin\\": "admin/",
+			"SiteVitals\\": "includes/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"WPVitals\\Tests\\": "tests/"
+			"SiteVitals\\Tests\\": "tests/"
 		}
 	},
 	"scripts": {

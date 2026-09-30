@@ -2,12 +2,12 @@
 /**
  * Orquestador del flujo completo de un escaneo.
  *
- * @package WPVitals
+ * @package SiteVitals
  */
 
 declare( strict_types=1 );
 
-namespace WPVitals;
+namespace SiteVitals;
 
 /**
  * Coordina escaneo, persistencia y notificación por correo.

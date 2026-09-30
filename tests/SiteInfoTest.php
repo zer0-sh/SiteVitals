@@ -1,10 +1,10 @@
 <?php
 declare( strict_types=1 );
 
-namespace WPVitals\Tests;
+namespace SiteVitals\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WPVitals\Admin\SiteInfo;
+use SiteVitals\Admin\SiteInfo;
 
 final class SiteInfoTest extends TestCase {
 
