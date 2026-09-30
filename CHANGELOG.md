@@ -17,6 +17,7 @@
 - Corregido el orden de los volúmenes Docker para que Plugin Check detecte el slug `sitevitals` y su text domain correspondiente.
 - Aislado el `wp-content/` local dentro del montaje Docker para que los plugins de desarrollo no se analicen como parte de SiteVitals.
 - Documentada la excepción PHPCS del filtro core `xmlrpc_enabled`.
+- Usada `SITEVITALS_VERSION` para versionar correctamente los assets del panel y evitar caché obsoleta.
 
 ### Etapa 0 - Alcance y decisiones iniciales
 

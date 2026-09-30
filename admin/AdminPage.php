@@ -348,7 +348,7 @@ final class AdminPage {
 			'sitevitals-admin',
 			\plugin_dir_url( \SITEVITALS_PLUGIN_FILE ) . 'assets/css/admin.css',
 			array(),
-			'0.1.0'
+			\SITEVITALS_VERSION
 		);
 	}
 
