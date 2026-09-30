@@ -20,6 +20,16 @@ Esta plataforma comprobará aspectos clave de tu instalación WordPress, incluye
 *   Configuración básica de seguridad (HTTPS, XML-RPC, debug mode).
 *   Aspectos de salud general y fiabilidad.
 
+## Capturas
+
+### Dashboard
+
+![Dashboard de SiteVitals](docs/assets/Dashboard.png)
+
+### Ajustes
+
+![Ajustes de SiteVitals](docs/assets/settings.png)
+
 ## ¿Cómo instalarlo?
 
 ### Entorno Local de Desarrollo (Docker)
@@ -76,4 +86,3 @@ El estándar de código está configurado en `phpcs.xml.dist` (WordPress Coding 
 ## ¿Cómo contribuir?
 
 *(Guía de contribución detallada se añadirá aquí en el futuro.)*
-
